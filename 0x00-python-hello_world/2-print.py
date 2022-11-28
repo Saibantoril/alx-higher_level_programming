@@ -1,2 +1,2 @@
-#!/bin/bash
-print ("Programming is like building a multilingual puzzle, followed by a new line.\n")
+#!/usr/bin/python3
+print ("Programming is like building a multilingual puzzle".\n)
