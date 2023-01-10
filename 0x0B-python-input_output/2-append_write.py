@@ -2,7 +2,7 @@
 """This module defines a file-appending function."""
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """Appends a string to a UTF8 text file
     """
     with open(filename, "a", encoding="utf-8") as f:
