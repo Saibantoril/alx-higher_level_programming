@@ -1,5 +1,12 @@
 #!/usr/bin/python3
-"""This class will be the “base” of all other classes in this project."""
+"""This module contains a class to serve as base for other classes"""
+
+
+import csv
+import json
+import os
+import turtle
+
 
 class Base:
     """Represents base of all classes created """
@@ -7,10 +14,12 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """ """
         if id is not None:
             self.id = id
         else:
-           self.id = Base.__nb_objects + 1
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -24,12 +33,6 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """writes the JSON string representation of list_objs to a file"""
-        if list_objs is None:
-            list_objs == []
-
-     @classmethod
-    def save_to_file(cls, list_objs):
         """Save JSON representation to file"""
         file_name = cls.__name__ + ".json"
         with open(file_name, "w") as jsonfile:
@@ -41,11 +44,15 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """returns the list of the JSON string representation"""
-        if json_string is None or json_string == []:
-            return "[]"
-        else:
-            return json.loads(json_string)
+        """Returns list of JSON string representations"""
+        json_string_list = []
+
+        if json_string is not None and json_string != '':
+            if type(json_string) != str:
+                raise TypeError("json_string must be a string")
+            json_string_list = json.loads(json_string)
+
+        return json_string_list
 
     @classmethod
     def create(cls, **dictionary):
@@ -59,8 +66,7 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
-
-     @classmethod
+    @classmethod
     def load_from_file(cls):
         """Returns a list of instances"""
 
