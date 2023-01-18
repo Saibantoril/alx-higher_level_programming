@@ -1,21 +1,24 @@
 #!/usr/bin/python3
+
+
 """this class Square inherits from Rectangle"""
+
 from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """ this class inherist from Rectangle"""
     def __init__(self, size, x=0, y=0, id=None):
+        super().__init__(width, height, x, y, id)
         self.size = size
         self.x = x
         self.y = y
         self.id = None
-        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """Defines a format for the string representation of the class"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
-     @property
+    @property
     def size(self):
         """Gets the value of size"""
         return self.__width
@@ -33,11 +36,11 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """Updates attributes of an instance"""
 
-        if args is not None and len(args) != 0:
-            if len(args) >= 1:
-                if type(args[0]) != int and args[0] is not None:
-                    raise TypeError("id must be an integer")
-                self.id = args[0]
+    if args is not None and len(args) != 0:
+        if len(args) >= 1:
+            if type(args[0]) != int and args[0] is not None:
+                raise TypeError("id must be an integer")
+            self.id = args[0]
             if len(args) > 1:
                 self.size = args[1]
             if len(args) > 2:
