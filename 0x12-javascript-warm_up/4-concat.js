@@ -1,7 +1,5 @@
 #!/usr/bin/node
 
-import { argv } from 'node:process';
+const [arg1, arg2] = process.argv.slice(2);
 
-argv.forEach((val1, val2) => {
-  console.log(`${val1} is ${val2}`);
-});
+console.log(${arg1} is ${arg2});
