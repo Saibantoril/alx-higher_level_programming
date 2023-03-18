@@ -8,6 +8,7 @@ import sys
 
 
 if __name__ == "__main__":
+
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     db_name = sys.argv[3]
