@@ -1,9 +1,5 @@
-const $div = $('#toggle_header');
-$div.on('click', function() {
-  const $header = $('header');
-  if ($header.hasClass('red')) {
-    $header.removeClass('red').addClass('green');
-  } else {
-    $header.removeClass('green').addClass('red');
-  }
+// Add event listener to DIV#red_header
+$('DIV#red_header').click(function () {
+  // Add class 'red' to the header
+  $('header').addClass('red');
 });
